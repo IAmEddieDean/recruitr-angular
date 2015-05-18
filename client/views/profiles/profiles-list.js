@@ -55,8 +55,11 @@ angular.module('recruitr')
   $scope.sortByName = function(name){
     Profile.sortByName(name);
   };
-  $scope.sortBySkills = function(skill){
-    Profile.sortsortBySkills(skill);
+  $scope.sortBy = function(){
+    Profile.sortBy($scope.searchSkills)
+    .then(function(response){
+      $scope.students = response.data;
+    });
   };
   $scope.profileGo = function(student){
     $state.go('profiles.show', {studentId: student._id});

@@ -13,6 +13,9 @@ angular.module('recruitr')
   Profile.findStudent = function(studentId){
     return $http.get(nodeUrl + '/profiles/' + studentId);
   };
+  Profile.sortBy = function(skill){
+    return $http.get(nodeUrl + '/profiles?skills=' + skill);
+  };
 
   return Profile;
 });
